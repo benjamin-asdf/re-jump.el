@@ -31,6 +31,7 @@
 (require 'cider-find)
 (require 'clojure-mode)
 
+;;;###autoload
 (defun re-frame-jump-to-reg ()
   (interactive)
   (let* ((kw (cider-symbol-at-point 'look-back))
@@ -47,8 +48,6 @@
 
     (progn (cider-find-ns "-" kw-ns)
            (search-forward-regexp (concat "reg-[a-zA-Z-]*[ \\\n]+" kw-to-find) nil 'noerror))))
-
-(global-set-key (kbd "M->") 're-frame-jump-to-reg)
 
 (provide 're-jump)
 ;;; re-jump.el ends here
